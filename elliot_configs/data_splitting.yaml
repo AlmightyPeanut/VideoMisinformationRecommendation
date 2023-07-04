@@ -1,0 +1,25 @@
+experiment:
+  dataset: yaudit
+  # relevant columns: youtube_id,position,watched_youtube_id,bot_id,topic
+  data_config:
+    side_information:
+      - dataloader: ItemAttributes
+        attribute_file: ../data/rec_sys_dataset.tsv
+    strategy: dataset
+    dataset_path: ../data/base_data.tsv
+  splitting:
+    save_on_disk: True
+    save_folder: ../data/splitting/
+    test_splitting:
+      strategy: random_subsampling
+      folds: 1
+      test_ratio: 0.2
+    validation_splitting:
+      strategy: random_cross_validation
+      folds: 10
+  top_k: 10
+  evaluation:
+    simple_metrics: [ nDCG,Precision,Recall,MRR ]  # NS, SERP-MS
+    relevance_threshold: 1
+    paired_ttest: True
+    wilcoxon_test: True

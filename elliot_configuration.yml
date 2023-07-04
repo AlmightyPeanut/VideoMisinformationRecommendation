@@ -1,0 +1,98 @@
+experiment:
+  dataset: yaudit_hybrid
+  data_config:
+#    side_information:
+#      - dataloader: ItemFeatures
+#        attribute_file: data/rec_sys_dataset.tsv
+#    strategy: dataset
+#    dataset_path: data/base_data/base_data_0_norec_0_rec_1_watched.tsv
+    strategy: hierarchy
+    root_folder: data/splitting/hybrid
+#  splitting:
+#    save_on_disk: True
+#    save_folder: data/splitting/hybrid
+#    test_splitting:
+#        strategy: random_cross_validation
+#        folds: 10
+  top_k: 10
+  evaluation:
+    simple_metrics: [ nDCG,Precision,Recall,MRR,NS ]  # NS, SERP-MS
+    relevance_threshold: 1
+    # paired_ttest: True
+    # wilcoxon_test: True
+  models:
+    MostPop:
+      meta:
+        save_recs: True
+#    FFM:
+#      meta:
+#        save_recs: True
+#      epochs: 50
+#      batch_size: 512
+#      factors: 1000
+#      lr: 0.001
+#      reg: .3
+  # TODO
+#    MultiVAE:
+#      meta:
+#        save_recs: True
+#      epochs: 100
+#      batch_size: 512
+#      intermediate_dim: [100, 200, 600, 1200]
+#      latent_dim: [100, 200, 600, 1200]
+#      reg_lambda: 0.01
+#      lr: 0.001
+#      dropout_pkeep: 1
+#    DeepFM:
+#      meta:
+#        save_recs: True
+#      epochs: 10
+#      batch_size: 512
+#      factors: [100, 500, 1000]
+#      lr: 0.001
+#      l_w: 0.0001
+#      hidden_neurons: (256,128)
+#      hidden_activations: ('relu','relu')
+#    NFM:
+#      meta:
+#        save_recs: True
+#      epochs: 50
+#      batch_size: 512
+#      factors: [100, 500, 1000]
+#      lr: 0.001
+#      l_w: 0.0001
+#      hidden_neurons: (256,128)
+#      hidden_activations: ('relu','relu')
+
+#      Slim:
+#        meta:
+#          save_recs: True
+#        l1_ratio: 0.001
+#        alpha: 0.001
+#      LogisticMatrixFactorization:  # LogMF
+#        meta:
+#          save_recs: True
+#        epochs: 10
+#        batch_size: 512
+#        factors: [10, 50, 100, 500, 1000, 5000]
+#        lr: 0.001
+#        reg: [.1, .3, .5]
+#        alpha: [.5, .1, .7]
+#      PMF:
+#        meta:
+#          save_recs: True
+#        epochs: 10
+#        batch_size: [256, 512]
+#        factors: [10, 50, 100, 500, 1000]
+#        lr: 0.001
+#        reg: [0.0025, .001, .1, .3]
+#        gaussian_variance: .1
+#    GMF:
+#      meta:
+#        save_recs: True
+#      epochs: 10
+#      batch_size: 512
+#      mf_factors: [10, 50, 100, 500, 1000]
+#      lr: 0.001
+#      is_edge_weight_train: True
+  print_results_as_triplets: True

@@ -271,6 +271,7 @@ def preprocess(sentence):
 
 
 def main():
+    # TODO: geht die pipeline auch nur mit papdamous tools?
     videos = pd.read_csv('data/train.csv')
     youtube_ids = list(videos['youtube_id'])
 
