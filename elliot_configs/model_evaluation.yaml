@@ -1,0 +1,14 @@
+experiment:
+  dataset: yaudit_non_hybrid
+  data_config:
+    strategy: hierarchy
+    root_folder: data/splitting/non_hybrid
+  top_k: 10
+  evaluation:
+    simple_metrics: [ nDCG,Precision,Recall,MRR,NS,SERP-MS ]
+    relevance_threshold: 1
+    paired_ttest: True
+    wilcoxon_test: True
+  models:
+    RecommendationFolder:
+      folder: results/yaudit_non_hybrid/recs

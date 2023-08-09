@@ -1,5 +1,3 @@
-import importlib
-
 from elliot.run import run_experiment
 
 
