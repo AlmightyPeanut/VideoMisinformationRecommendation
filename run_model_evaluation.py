@@ -1,10 +1,8 @@
-import importlib
-
 from elliot.run import run_experiment
 
 
 def main():
-    run_experiment("elliot_configs/svd_experiments.yaml")
+    run_experiment("elliot_configs/model_evaluation.yaml")
 
 
 if __name__ == '__main__':
